@@ -1,3 +1,5 @@
+////////////// August 12, 2022 /////////////////
+
 ////////////// August 10, 2022 /////////////////
 
 /// Getting Familar with Data Stuctures ///
@@ -54,30 +56,35 @@ function mySet() {
   };
 
   //   This Method will Return the Intersection of Two Sets as a New Set
+  //   For example, Both Sets have "A", as a Result, a New Set will be Created with Only the Character, "A"
   this.intersection = function (otherSet) {
+    // Creating a New Set Titled, IntersectionSet
     const intersectionSet = new mySet();
     const firstSet = this.values();
-    firstSet.forEach(function (e) {
-      if (otherSet.has(e)) {
-        intersectionSet.add(e);
+    firstSet.forEach(function (element) {
+      if (otherSet.has(element)) {
+        intersectionSet.add(element);
       }
     });
     return intersectionSet;
   };
 
   //   This Method will Return the Difference of Two Sets as a New Set
+  //   This will Show All the Items that are in One Set but Not the Other
   this.difference = function (otherSet) {
+    // Creating a New Set Titled, "differenceSet"
     const differenceSet = new mySet();
     const firstSet = this.values();
-    firstSet.forEach(function (e) {
-      if (!otherSet.has(e)) {
-        differenceSet.add(e);
+    firstSet.forEach(function (element) {
+      if (!otherSet.has(element)) {
+        differenceSet.add(element);
       }
     });
     return differenceSet;
   };
 
   //   This Method will Test if the Set is a Subset of a Different Set
+  //   This will Test if the First Set is Completely Contained within the Other Set. A Boolean will be Returned.
   this.subset = function (otherSet) {
     const firstSet = this.values();
     return firstSet.every(function (value) {
