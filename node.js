@@ -1,8 +1,41 @@
 ////////////// August 12, 2022 /////////////////
 
-////////////// August 10, 2022 /////////////////
-
 /// Getting Familar with Data Stuctures ///
+
+//// Practice Working with The Queue Data Structure ////
+function Queue() {
+  collection = [];
+
+  this.print = function () {
+    console.log(collection);
+  };
+  this.enqueue = function (element) {
+    collection.push(element);
+  };
+  this.dequeue = function (element) {
+    return collection.shift();
+  };
+  this.front = function () {
+    return collection[0];
+  };
+  this.size = function () {
+    return collection.length;
+  };
+  this.isEmpty = function () {
+    return collection.length === 0;
+  };
+}
+
+const q = new Queue();
+q.enqueue("A");
+q.enqueue("B");
+q.enqueue("C");
+q.print();
+q.dequeue();
+q.front();
+q.print();
+
+////////////// August 10, 2022 /////////////////
 
 // Practice Working with Sets //
 
@@ -30,7 +63,7 @@ function mySet() {
   };
 
   // This Method will Remove an Element from a Set
-  this.remove = function (element) {
+  this.delete = function (element) {
     if (this.has(element)) {
       index = collection.indexOf(element);
       collection.splice(index, 1);
@@ -41,7 +74,7 @@ function mySet() {
 
   // This Method will Return the Size of the Collection
   this.size = function () {
-    return colection.length;
+    return collection.length;
   };
 
   // This Method will Return the Union of the Two Sets
@@ -87,25 +120,27 @@ function mySet() {
   //   This will Test if the First Set is Completely Contained within the Other Set. A Boolean will be Returned.
   this.subset = function (otherSet) {
     const firstSet = this.values();
+
+    // The "every()" method tests whether all elements in the array pass the test implemented by the provided function & returns a Boolean value.
     return firstSet.every(function (value) {
       return otherSet.has(value);
     });
   };
 }
 
-const setA = new mySet();
-const setB = new mySet();
+// const setA = new mySet();
+// const setB = new mySet();
 
-setA.add("A");
-setB.add("B");
-setB.add("C");
-setB.add("A");
-setB.add("D");
-console.log(setA.subset(setB));
-console.log(setA.intersection(setB).values());
-console.log(setB.difference(setA).values());
+// setA.add("A");
+// setB.add("B");
+// setB.add("C");
+// setB.add("A");
+// setB.add("D");
+// console.log(setA.subset(setB));
+// console.log(setA.intersection(setB).values());
+// console.log(setB.difference(setA).values());
 
-// Practice Working with Stacks //
+//// Practice Working with Stacks ////
 
 // Creating a Stack
 
@@ -144,6 +179,7 @@ const Stack = function () {
 
 // Making a Constructor Function
 // "new" Makes a New Object
+
 // const myStack = new Stack();
 // myStack.push(1);
 // myStack.push(2);
