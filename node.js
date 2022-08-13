@@ -1,6 +1,59 @@
-////////////// August 12, 2022 /////////////////
-
 /// Getting Familar with Data Stuctures ///
+
+////////////// August 13, 2022 /////////////////
+
+//// Using a Priority Queue ////
+
+function PriorityQueue() {
+  const collection = [];
+  this.printCollection = function () {
+    console.log(collection);
+  };
+  this.enqueue = function (element) {
+    if (this.isEmpty()) {
+      collection.push(element);
+    } else {
+      let added = false;
+      for (let i = 0; i < collection.length; i++) {
+        // Checking Priorites
+        if (element[1] < collection[i][1]) {
+          collection.splice(i, 0, element);
+          added = true;
+          break;
+        }
+      }
+      if (!added) {
+        collection.push(element);
+      }
+    }
+  };
+  this.dequeue = function () {
+    const value = collection.shift();
+    return value[0];
+  };
+  this.front = function () {
+    return collection[0];
+  };
+  this.size = function () {
+    return collection.length;
+  };
+  this.isEmpty = function () {
+    return collection.length === 0;
+  };
+}
+
+// const pq = new PriorityQueue();
+
+// pq.enqueue(["Beau Carnes", 2]);
+// pq.enqueue(["Quincy Larson", 3]);
+// pq.enqueue(["Ewa Mitulska-Wojcik", 1]);
+// pq.enqueue(["Briana Swift", 2]);
+// pq.printCollection();
+// pq.dequeue();
+// pq.front();
+// pq.printCollection();
+
+////////////// August 12, 2022 /////////////////
 
 //// Practice Working with The Queue Data Structure ////
 function Queue() {
@@ -26,14 +79,14 @@ function Queue() {
   };
 }
 
-const q = new Queue();
-q.enqueue("A");
-q.enqueue("B");
-q.enqueue("C");
-q.print();
-q.dequeue();
-q.front();
-q.print();
+// const q = new Queue();
+// q.enqueue("A");
+// q.enqueue("B");
+// q.enqueue("C");
+// q.print();
+// q.dequeue();
+// q.front();
+// q.print();
 
 ////////////// August 10, 2022 /////////////////
 

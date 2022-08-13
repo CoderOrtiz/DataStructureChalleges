@@ -14,6 +14,12 @@ A Queue is a linear structure which follows a particular order in which the oper
 
 For more information on Queues, click [here](https://www.geeksforgeeks.org/queue-data-structure/).
 
+## Priority Queues
+
+Priority Queue is an abstract data type that is similar to a queue, and every element has some priority value associated with it. The priority of the elements in a priority queue determines the order in which elements are served (i.e., the order in which they are removed). If in any case the elements have same priority, they are served as per their ordering in the queue.
+
+For more information on Priority Queues, click [here](https://www.geeksforgeeks.org/priority-queue-set-1-introduction/).
+
 ## Stacks
 
 ### First in, Last out (FILO)
