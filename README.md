@@ -33,6 +33,18 @@ Binary Search Tree is a node-based binary tree data structure which has the foll
 ![example snapshot](/images/binary-search-tree.png)
 ![example snapshot](/images/binary-search-tree-titles.png)
 
+### Traversal of a Binary Search Tree
+
+Unlike linear data structures (Array, Linked List, Queues, Stacks, etc) which have only one logical way to traverse them, trees can be traversed in different ways.
+
+For more information on Tree Traversals, click [here](https://www.geeksforgeeks.org/queue-data-structure/).
+
+### Traversal of a Binary Search Tree
+
+The height of the binary tree is the longest path from root node to any leaf node in the tree.
+
+For more information on Tree Height, click [here](https://www.geeksforgeeks.org/relationship-number-nodes-height-binary-tree/).
+
 ## Queues
 
 ### First In First Out (FIFO)
