@@ -4,6 +4,79 @@ const res = require("express/lib/response");
 
 ////////////// August 14, 2022 /////////////////
 
+//// Hash Tables ////
+
+const hash = (string, max) => {
+  let hash = 0;
+  for (let i = 0; i < string.length; i++) {
+    hash += string.charCodeAt(i);
+  }
+  return hash % max;
+};
+
+let HashTable = function () {
+  let storage = [];
+  const storageLimit = 4;
+
+  this.print = function () {
+    console.log(storage);
+  };
+
+  this.add = function (key, value) {
+    let index = hash(key, storageLimit);
+    if (storage[index] === undefined) {
+      storage[index] = [[key, value]];
+    } else {
+      let inserted = false;
+      for (let i = 0; i < storage[index].length; i++) {
+        if (storage[index][i][0] === key) {
+          storage[index][i][0] === value;
+          inserted = true;
+        }
+      }
+      if (inserted === false) {
+        storage[index].push([key, value]);
+      }
+    }
+  };
+
+  this.remove = function (key) {
+    let index = hash(key, storageLimit);
+    if (storage[index].length === 1 && storage[index][0][0] === key) {
+      delete storage[index];
+    } else {
+      for (var i = 0; i < storage[index]; i++) {
+        if (storage[index][i][0] === 0) {
+          delete storage[index][i];
+        }
+      }
+    }
+  };
+
+  this.lookup = function (key) {
+    let index = hash(key, storageLimit);
+    if (storage[index] === undefined) {
+      return undefined;
+    } else {
+      for (let i = 0; i < storage[index].length; i++) {
+        if (storage[index][i][0] === 0) {
+          return storage[index][0][1];
+        }
+      }
+    }
+  };
+};
+
+console.log(hash("quincy", 10));
+
+let ht = new HashTable();
+ht.add("beau", "person");
+ht.add("fido", "dog");
+ht.add("rex", "dinosour");
+ht.add("tux", "penguin");
+
+console.log(ht.lookup("tux"));
+ht.print();
 //// Traversal & Height of a Binary Search Tree  ////
 
 class Node {
@@ -217,30 +290,30 @@ class BST {
   }
 }
 
-const bst = new BST();
+// const bst = new BST();
 
-bst.add(9);
-bst.add(4);
-bst.add(17);
-bst.add(3);
-bst.add(6);
-bst.add(22);
-bst.add(5);
-bst.add(7);
-bst.add(20);
+// bst.add(9);
+// bst.add(4);
+// bst.add(17);
+// bst.add(3);
+// bst.add(6);
+// bst.add(22);
+// bst.add(5);
+// bst.add(7);
+// bst.add(20);
 
-console.log(bst.findMinHeight());
-console.log(bst.findMaxHeight());
-console.log(bst.isBalanced());
-bst.add(10);
-console.log(bst.findMinHeight());
-console.log(bst.findMaxHeight());
-console.log(bst.isBalanced());
-console.log(`In Order: ${bst.inOrder()}`);
-console.log(`PreOrder: ${bst.preOrder()}`);
-console.log(`PostOrder: ${bst.postOrder()}`);
+// console.log(bst.findMinHeight());
+// console.log(bst.findMaxHeight());
+// console.log(bst.isBalanced());
+// bst.add(10);
+// console.log(bst.findMinHeight());
+// console.log(bst.findMaxHeight());
+// console.log(bst.isBalanced());
+// console.log(`In Order: ${bst.inOrder()}`);
+// console.log(`PreOrder: ${bst.preOrder()}`);
+// console.log(`PostOrder: ${bst.postOrder()}`);
 
-console.log(`Level Order: ${bst.levelOrder()}`);
+// console.log(`Level Order: ${bst.levelOrder()}`);
 
 ////////////// August 13, 2022 /////////////////
 
