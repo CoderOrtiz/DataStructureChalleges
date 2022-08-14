@@ -1,5 +1,7 @@
 /// Getting Familar with Data Stuctures ///
 
+////////////// August 14, 2022 /////////////////
+
 ////////////// August 13, 2022 /////////////////
 
 //// Binary Search Tree ////
@@ -28,6 +30,7 @@ class BST {
             node.left = new Node(data);
             return;
           } else if (node.left !== null) {
+            // This Creates a Recersive Function
             return searchTree(node.left);
           }
         } else if (data > node.data) {
