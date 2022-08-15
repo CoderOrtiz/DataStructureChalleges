@@ -2,6 +2,85 @@
 
 const res = require("express/lib/response");
 
+////////////// August 15, 2022 /////////////////
+
+//// Trie ////
+
+let Node = function () {
+  this.keys = new Map();
+  this.end = false;
+  this.setEnd = function () {
+    this.end = true;
+  };
+  this.isEnd = function () {
+    return this.end;
+  };
+};
+
+let Trie = function () {
+  this.root = new Node();
+
+  this.add = function (input, node = this.root) {
+    if (input.length == 0) {
+      node.setEnd();
+      return;
+    } else if (!node.keys.has(input[0])) {
+      node.keys.set(input[0], new Node());
+      return this.add(input.substr(1), node.keys.get(input[0]));
+    } else {
+      return this.add(input.substr(1), node.keys.get(input[0]));
+    }
+  };
+
+  this.isWord = function (word) {
+    let node = this.root;
+    while (word.length > 1) {
+      if (!node.keys.has(word[0])) {
+        return false;
+      } else {
+        node = node.keys.get(word[0]);
+        word = word.substr(1);
+      }
+    }
+    return node.keys.has(word) && node.keys.get(word).isEnd() ? true : false;
+  };
+
+  this.print = function () {
+    let words = new Array();
+    let search = function (node, string) {
+      if (node.keys.size != 0) {
+        for (let letter of node.keys.keys()) {
+          search(node.keys.get(letter), string.concat(letter));
+        }
+        if (node.isEnd()) {
+          words.push(string);
+        }
+      } else {
+        string.length > 0 ? words.push(string) : undefined;
+        return;
+      }
+    };
+    search(this.root, new String());
+    return words.length > 0 ? words : null;
+  };
+};
+
+myTrie = new Trie();
+
+myTrie.add("Ball");
+myTrie.add("Bat");
+myTrie.add("Doll");
+myTrie.add("Dark");
+myTrie.add("Do");
+myTrie.add("Dorm");
+myTrie.add("Send");
+myTrie.add("Sense");
+
+console.log(myTrie.isWord("Doll"));
+console.log(myTrie.isWord("Dor"));
+console.log(myTrie.isWord("Dorf"));
+console.log(myTrie.print());
+
 ////////////// August 14, 2022 /////////////////
 
 //// Linked List ////
@@ -10,7 +89,7 @@ function LinkedList() {
   let length = 0;
   let head = null;
 
-  let Node = function (element) {
+  Node = function (element) {
     this.element = element;
     this.next = null;
   };
@@ -128,18 +207,18 @@ function LinkedList() {
   };
 }
 
-let conga = new LinkedList();
-conga.add("Kitten");
-conga.add("Puppy");
-conga.add("Dog");
-conga.add("Cat");
-conga.add("Fish");
+// let conga = new LinkedList();
+// conga.add("Kitten");
+// conga.add("Puppy");
+// conga.add("Dog");
+// conga.add("Cat");
+// conga.add("Fish");
 
-console.log(conga.size());
-console.log(conga.removeAt(3));
-console.log(conga.elementAt(3));
-console.log(conga.indexOf("Puppy"));
-console.log(conga.size());
+// console.log(conga.size());
+// console.log(conga.removeAt(3));
+// console.log(conga.elementAt(3));
+// console.log(conga.indexOf("Puppy"));
+// console.log(conga.size());
 
 //// Hash Tables ////
 
@@ -216,13 +295,13 @@ let HashTable = function () {
 // ht.print();
 //// Traversal & Height of a Binary Search Tree  ////
 
-class Node {
-  constructor(data, left = null, right = null) {
-    this.data = data;
-    this.left = left;
-    this.right = right;
-  }
-}
+// class Node {
+//   constructor(data, left = null, right = null) {
+//     this.data = data;
+//     this.left = left;
+//     this.right = right;
+//   }
+// }
 
 class BST {
   constructor() {
