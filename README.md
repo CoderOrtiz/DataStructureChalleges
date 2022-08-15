@@ -6,6 +6,16 @@ In this Repository I will be Solving Data Structure and Algorithm Challenges and
 
 # Types of Data Structures:
 
+## Hash Tables
+
+Hashing is a technique or process of mapping keys, and values into the hash table by using a hash function.
+
+Below is an example of a hash table, and in red, a collision occuring.
+
+![example snapshot](/images/hash-table-example.png)
+
+For more information on Hash Tables, click [here](https://www.geeksforgeeks.org/hashing-data-structure/).
+
 ## Binary Search Trees
 
 Binary Search Tree is a node-based binary tree data structure which has the following properties:
