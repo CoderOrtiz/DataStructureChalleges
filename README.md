@@ -14,7 +14,7 @@ Below is an example of a hash table, and in red, a collision occuring.
 
 ![example snapshot](/images/hash-table-example.png)
 
-For more information on Hash Tables, click [here](https://www.geeksforgeeks.org/hashing-data-structure/).
+For more information on Hash Tables, click [here](https://www.geeksforgeeks.org/hashing-set-1-introduction/).
 
 ## Binary Search Trees
 
