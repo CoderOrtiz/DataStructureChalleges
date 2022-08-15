@@ -6,6 +6,14 @@ In this Repository I will be Solving Data Structure and Algorithm Challenges and
 
 # Types of Data Structures:
 
+## Trie
+
+Trie is an efficient information retrieval data structure. Using Trie, search complexities can be brought to optimal limit (key length). Every node of Trie consists of multiple branches. Each branch represents a possible character of keys.
+
+![example snapshot](/images/trie-example.png)
+
+For more information on Trie's, click [here](https://www.geeksforgeeks.org/trie-insert-and-search/).
+
 ## Hash Tables
 
 Hashing is a technique or process of mapping keys, and values into the hash table by using a hash function.
